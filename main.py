@@ -24,13 +24,14 @@ img = np.sum( np.asarray( img.resize(S) ), axis=2)
 img -= img.min()
 img = (1.0 - img/img.max())**GCF*(chars.size-1)
 
-import os
-
-os.remove(filename)
-
 res=f"{sys.argv[1]}\n\n" + "\n".join(("".join(r) for r in chars[img.astype(int)]))
 bashCommand = ["git", "commit", "-m", f"{res}"]
 import subprocess
 process = subprocess.Popen(bashCommand, stdout=subprocess.PIPE)
 output, error = process.communicate()
 print("output:", output)
+
+
+import os
+
+os.remove(filename)
