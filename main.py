@@ -24,7 +24,7 @@ img = np.sum( np.asarray( img.resize(S) ), axis=2)
 img -= img.min()
 img = (1.0 - img/img.max())**GCF*(chars.size-1)
 
-res=f"{sys.argv[1]}\n\n" + "\n".join(("".join(r) for r in chars[img.astype(int)]))
+res=f"{sys.argv[1]}\n\n" + '\n'.join((''.join(r) for r in chars[img.astype(int)])) + f"\n{url}"
 bashCommand = ["git", "commit", "-m", f"{res}"]
 import subprocess
 process = subprocess.Popen(bashCommand, stdout=subprocess.PIPE)
