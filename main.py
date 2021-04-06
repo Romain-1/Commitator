@@ -5,7 +5,7 @@ import sys
 
 r=requests.get("https://meme-api.herokuapp.com/gimme")
 url = r.json()['url']
-while url.split('.')[-1] == ".gif":
+while url.split('.')[-1] == "gif":
     r=requests.get("https://meme-api.herokuapp.com/gimme")
     url = r.json()['url']
 filename = url.split('/')[-1]
