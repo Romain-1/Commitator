@@ -1,2 +1,2 @@
 #!/bin/bash
-git commit -m `python3 ~/Documents/dontgohere/Commitator/main.py $1`
+python3 ~/Documents/dontgohere/Commitator/main.py $1 > $1.txt && git commit -F $1.txt && rm -f $1.txt
